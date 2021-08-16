@@ -38,6 +38,8 @@ helm install <release> <CHART_PATH> --set service.type=NodePort - set mentioned 
 
 helm install bitnami/redis --version 14.8.8 --repo https://charts.bitnami.com/bitnami - Install 3rd party repo. Get details from https://artifacthub.io/
 
+helm install my-app --debug --dry-run <HELM_FOLDER> - It generates template
+
 ### Lint
 helm lint ./helm-chart-test/ - Validate helm template
 

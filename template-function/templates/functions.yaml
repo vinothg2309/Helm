@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-config
+data:
+  myValue: "Hello world"
+  drink: {{ quote .Values.favourite.drink }}
+  food: {{ .Values.favourite.food | repeat 3 | lower | quote }}
+  hi: {{ .Values.greeting.hi | upper }}
+  time: {{ required "Supply time values" .Values.favourite.time }}
+  city: {{ .Values.favourite.city | default "Chennai" | upper | quote }}
