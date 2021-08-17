@@ -1,0 +1,26 @@
+# ******** Flow control - 'with' ********
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-config
+data:
+  myValue: "Hello world"
+  {{- with .Values.favorite }}
+  drink: {{ .drink | upper | quote }}
+  food: {{ .food | upper | quote }}
+  {{- end }}
+
+
+ {{/* {{- with .Values.favorite }}
+  drink: {{ .drink | default "tea" | quote }}
+  food: {{ .food | upper | quote }}
+  release: {{ .Release.Name }}
+  {{- end }} */}}
+
+
+  {{/* {{- with .Values.favorite }}
+  drink: {{ .drink | default "tea" | quote }}
+  food: {{ .food | upper | quote }}
+  {{- end }}
+  release: {{ .Release.Name }} */}}

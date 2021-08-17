@@ -2,6 +2,14 @@
 
 Note: the vaules.yaml for this is at /Template_functions/values.yaml 
 
+## Commenting
+
+If we comment yaml with 
+
+- '#' - helm won't ignore it & will display it in rendered template
+- {{/* */}} - helm will ignore it while rendering template
+
+
 1. quote
 2. repeat
 3. lower

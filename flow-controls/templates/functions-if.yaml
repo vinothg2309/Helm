@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-config
+data:
+  myValue: "Hello world"
+  drink: {{ quote .Values.favorite.drink }}
+  food: {{ .Values.favorite.food | repeat 3 | lower | quote }}
+  hi: {{ .Values.greeting.hi | upper }}
+  time: {{ required "Supply time values" .Values.favorite.time }}
+  city: {{ .Values.favorite.city | default "Chennai" | upper | quote }}
+  {{- if eq .Values.favorite.drink "water" }}
+  isFavDrinkWater: true # Maintain intendation properly else it throws error
+  {{- end }}
+  {{- if eq .Values.favorite.drink "coffee" }}
+  isFavDrinkCoffee: true # Maintain intendation properly else it throws error
+  {{ end }}
+
+
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: eyewitness-elk-configmap
+# data:
+#   myvalue: "Hello World"
+#   drink: "coffee"
+#   food: "PIZZA"
+#     mug: true
+
+
+
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: {{ .Release.Name }}-configmap
+# data:
+#   myvalue: "Hello World"
+#   drink: {{ .Values.favorite.drink | default "tea" | quote }}
+#   food: {{ .Values.favorite.food | upper | quote }}
+#   {{ if eq .Values.favorite.drink "coffee" }}
+#   mug: true
+#   {{ end }}
+
+
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: {{ .Release.Name }}-configmap
+# data:
+#   myvalue: "Hello World"
+#   drink: {{ .Values.favorite.drink | default "tea" | quote }}
+#   food: {{ .Values.favorite.food | upper | quote }}
+#   {{- if eq .Values.favorite.drink "coffee" }}
+#   mug: true
+#   {{- end }}
+
+
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: {{ .Release.Name }}-configmap
+# data:
+#   myvalue: "Hello World"
+#   drink: {{ .Values.favorite.drink | default "tea" | quote }}
+#   food: {{ .Values.favorite.food | upper | quote }}*
+# **{{- if eq .Values.favorite.drink "coffee" }}
+#   mug: true*
+# **{{- end }}
