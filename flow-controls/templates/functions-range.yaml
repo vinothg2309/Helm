@@ -14,6 +14,13 @@ data:
     {{- range .Values.pizzaToppings }}
     - {{ . | title | quote}}
     {{- end}}
+  config.json: |-
+    {
+  {{- range $key, $val := .Values.json }}
+  {{ $key | quote | indent 6}}: {{ $val | quote }}
+  {{- end}}
+    }
+ 
 
 
 

@@ -1,8 +1,14 @@
-# Default values for flow-controls.
+# Default values for variables.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
 
 favorite:
   drink: water
@@ -17,17 +23,6 @@ pizzaToppings:
   - cheese
   - peppers
   - onions
-
-json:
-  key1: val1
-  key2: val2
-  key3: val3
-
-image:
-  repository: nginx
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""

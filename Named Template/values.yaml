@@ -1,27 +1,16 @@
-# Default values for flow-controls.
+# Default values for template-function.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
-favorite:
+favourite:
   drink: water
   food: Chicken
   time: 6
 
 greeting:
   hi: hi
-
-pizzaToppings:
-  - mushrooms
-  - cheese
-  - peppers
-  - onions
-
-json:
-  key1: val1
-  key2: val2
-  key3: val3
 
 image:
   repository: nginx

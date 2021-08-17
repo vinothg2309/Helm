@@ -1,0 +1,18 @@
+# ******** Variables in range ********
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-config
+data:
+  myValue: "Hello world"
+  {{- $relname:= .Release.Name -}}
+  {{- with .Values.favorite }}
+  drink: {{ .drink | upper | quote }}
+  food: {{ .food | upper | quote }}
+  release: {{ $relname }}
+  {{- end }}
+  toppings: |-
+    {{- range $index, $toppings := .Values.pizzaToppings }}
+      {{ $index }}: {{$toppings}}
+    {{- end }}
