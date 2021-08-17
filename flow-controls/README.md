@@ -46,3 +46,9 @@ If we comment yaml with
 ## range
 
 - Support for looping
+
+```
+{{- range .Values.pizzaToppings }}
+    - {{ . | title | quote}}
+    {{- end}}
+```
